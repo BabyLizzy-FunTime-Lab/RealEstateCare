@@ -197,10 +197,13 @@ http://ionicframework.com/docs/theming/ */
    */
 
   .md body {
-    --ion-background-color: #121212;
+    /*--ion-background-color: #121212;*/
+    --ion-background-color: white;
     --ion-background-color-rgb: 18,18,18;
 
-    --ion-text-color: #ffffff;
+    /*--ion-text-color: #ffffff;*/
+    --ion-text-color-dark: black;
+    --ion-text-color-light: white;
     --ion-text-color-rgb: 255,255,255;
 
     --ion-border-color: #222222;
@@ -236,7 +239,7 @@ http://ionicframework.com/docs/theming/ */
 }
 
 html {
-  /* For more information on dynamic font scaling, visit the documentation: 
+  /* For more information on dynamic font scaling, visit the documentation:
   https://ionicframework.com/docs/layout/dynamic-font-scaling */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
