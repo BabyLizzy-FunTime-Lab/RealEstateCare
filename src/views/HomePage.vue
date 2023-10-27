@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>{{ store.getStoreTest }}</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -21,8 +21,23 @@
   </ion-page>
 </template>
 
-<script setup>
+<script>
+import {useHouseStore} from "@/stores/HouseStore.js";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+export default {
+  components: {
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
+    IonToolbar
+  },
+  data() {
+    return {
+      store: useHouseStore()
+    }
+  }
+}
 </script>
 
 <style scoped>
