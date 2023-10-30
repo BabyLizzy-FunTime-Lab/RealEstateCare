@@ -18,6 +18,7 @@
 import {useHouseStore} from "@/stores/HouseStore.js";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 export default {
+  name: "HomePage",
   components: {
     IonContent,
     IonHeader,
@@ -33,7 +34,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 ion-toolbar {
   color: var(--ion-text-color-light);
 }
