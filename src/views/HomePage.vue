@@ -1,30 +1,41 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>{{ store.getStoreTest }}</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
+    <TopToolBar/>
     <ion-content :fullscreen="true">
       <div class="container">
         <strong>Ready to create an app?</strong>
       </div>
+      <ion-button>
+        Left Icon
+      </ion-button>
+      <ion-button>
+        Right Icon
+      </ion-button>
+      <ion-button>
+        Test
+      </ion-button>
+      <ion-button>
+        Test
+      </ion-button>
     </ion-content>
+    <BottomTabs/>
   </ion-page>
 </template>
 
 <script>
 import {useHouseStore} from "@/stores/HouseStore.js";
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import TopToolBar from "@/components/nav/TopToolBar.vue";
+import BottomTabs from "@/components/nav/BottomTabs.vue";
+import { IonContent, IonPage, IonIcon, IonButton } from '@ionic/vue';
 export default {
   name: "HomePage",
   components: {
     IonContent,
-    IonHeader,
     IonPage,
-    IonTitle,
-    IonToolbar
+    IonIcon,
+    IonButton,
+    TopToolBar,
+    BottomTabs
   },
   data() {
     return {
@@ -35,7 +46,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-ion-toolbar {
-  color: var(--ion-text-color-light);
-}
+
 </style>

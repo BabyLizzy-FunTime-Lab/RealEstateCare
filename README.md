@@ -22,7 +22,8 @@ npm add -D sass
 ```
 
 ## Dummy data
-Uses my-json-server for dummy data.<br/>https://my-json-server.typicode.com/
+- Textdata: Uses my-json-server for dummy data.<br/>https://my-json-server.typicode.com/
+- Images: Images are stored in cloudinary.
 
 ## Start server
 ```sh
