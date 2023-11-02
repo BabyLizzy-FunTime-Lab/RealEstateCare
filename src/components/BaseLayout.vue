@@ -1,10 +1,22 @@
 <script>
-import {IonPage, IonContent, IonHeader, IonTitle, IonToolbar, IonFooter} from "@ionic/vue";
+import {IonPage, IonButtons, IonImg, IonLabel, IonButton, IonIcon,
+  IonContent, IonHeader, IonTitle, IonToolbar, IonFooter} from "@ionic/vue";
+import { build, search, alertCircle } from 'ionicons/icons';
+import BottomToolbarButton from "@/components/toolbar/BottomToolbarButton.vue";
 
 export default {
   name: "BaseLayout",
-  components: {IonPage, IonContent, IonTitle, IonHeader, IonToolbar, IonFooter}
-
+  components: {
+    BottomToolbarButton, IonPage, IonButtons, IonImg, IonLabel,
+    IonButton, IonIcon, IonContent, IonTitle, IonHeader, IonToolbar, IonFooter},
+  setup() {
+    return { alertCircle, build, search };
+  },
+  methods: {
+    print(icon) {
+      console.log(icon);
+    }
+  }
 }
 </script>
 
@@ -40,7 +52,11 @@ export default {
     </ion-content>
     <ion-footer>
       <ion-toolbar class="toolbar--bottom">
-        <ion-title>Footer</ion-title>
+        <ion-buttons>
+          <bottom-toolbar-button label="Active Task" :icon="build" path="derp"/>
+          <bottom-toolbar-button label="Search" :icon="search" path="herp"/>
+          <bottom-toolbar-button label="Information" :icon="alertCircle" path="herp"/>
+        </ion-buttons>
       </ion-toolbar>
     </ion-footer>
   </IonPage>
@@ -66,5 +82,8 @@ export default {
 }
 .toolbar--bottom {
   --background: var(--ion-color-secondary);
+  ion-buttons {
+    justify-content: space-between;
+  }
 }
 </style>
