@@ -1,41 +1,23 @@
 <template>
-  <ion-page>
-    <TopToolBar/>
-    <ion-content :fullscreen="true">
-      <div class="container">
-        <strong>Ready to create an app?</strong>
+    <BaseLayout>
+      <div class="tile-container">
+        <TileButton name="Scheduled"/>
+        <TileButton name="Completed"/>
+        <TileButton name="Knowledge base"/>
+        <TileButton name="Settings"/>
       </div>
-      <ion-button>
-        Left Icon
-      </ion-button>
-      <ion-button>
-        Right Icon
-      </ion-button>
-      <ion-button>
-        Test
-      </ion-button>
-      <ion-button>
-        Test
-      </ion-button>
-    </ion-content>
-    <BottomTabs/>
-  </ion-page>
+    </BaseLayout>
 </template>
 
 <script>
 import {useHouseStore} from "@/stores/HouseStore.js";
-import TopToolBar from "@/components/nav/TopToolBar.vue";
-import BottomTabs from "@/components/nav/BottomTabs.vue";
-import { IonContent, IonPage, IonIcon, IonButton } from '@ionic/vue';
+import BaseLayout from "@/components/BaseLayout.vue";
+import TileButton from "@/components/home/TileButton.vue";
 export default {
   name: "HomePage",
   components: {
-    IonContent,
-    IonPage,
-    IonIcon,
-    IonButton,
-    TopToolBar,
-    BottomTabs
+    BaseLayout,
+    TileButton
   },
   data() {
     return {
@@ -46,5 +28,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.tile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+}
 </style>
