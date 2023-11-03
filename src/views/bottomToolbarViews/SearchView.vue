@@ -1,11 +1,13 @@
 <script>
 export default {
-  name: "InformationView"
+  name: "SearchView",
 }
 </script>
 
 <template>
-<h2>Information</h2>
+  <base-layout>
+    <h2>Search</h2>
+  </base-layout>
 </template>
 
 <style scoped lang="scss">

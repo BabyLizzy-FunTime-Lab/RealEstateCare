@@ -27,11 +27,12 @@ export default {
       <div>
         <ion-toolbar class="toolbar--top" >
           <ion-img
+              router-link="/"
               class="toolbar__logo"
               src="/logos/real-estate-care-logo.png"
               alt="Real Estate Logo" slot="start"/>
           <ion-buttons slot="secondary">
-            <ion-button>
+            <ion-button router-link="/search">
               <ion-img
                   class="toolbar__icon"
                   src="/icons/toolbar/toolbar-bell-icon.png"
@@ -53,9 +54,9 @@ export default {
     <ion-footer>
       <ion-toolbar class="toolbar--bottom">
         <ion-buttons>
-          <bottom-toolbar-button label="Active Task" :icon="build" path="derp"/>
-          <bottom-toolbar-button label="Search" :icon="search" path="herp"/>
-          <bottom-toolbar-button label="Information" :icon="alertCircle" path="herp"/>
+          <bottom-toolbar-button label="Active Task" :icon="build" path="/active-task"/>
+          <bottom-toolbar-button label="Search" :icon="search" path="/search"/>
+          <bottom-toolbar-button label="Information" :icon="alertCircle" path="/information"/>
         </ion-buttons>
       </ion-toolbar>
     </ion-footer>

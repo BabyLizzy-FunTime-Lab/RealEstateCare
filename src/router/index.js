@@ -13,15 +13,15 @@ const routes = [
   },
   {
     path: '/active-task',
-    component: () => import('../views/TabViews/ActiveTaskView.vue')
+    component: () => import('../views/bottomToolbarViews/ActiveTaskView.vue')
   },
   {
     path: '/search',
-    component: () => import('../views/TabViews/SearchView.vue')
+    component: () => import('../views/bottomToolbarViews/SearchView.vue')
   },
   {
     path: '/information',
-    component: () => import('../views/TabViews/InformationView.vue')
+    component: () => import('../views/bottomToolbarViews/InformationView.vue')
   }
 ]
 

@@ -1,22 +1,20 @@
 <template>
-    <BaseLayout>
+    <base-layout>
       <div class="tile-container">
         <TileButton name="Scheduled"/>
         <TileButton name="Completed"/>
         <TileButton name="Knowledge base"/>
         <TileButton name="Settings"/>
       </div>
-    </BaseLayout>
+    </base-layout>
 </template>
 
 <script>
 import {useHouseStore} from "@/stores/HouseStore.js";
-import BaseLayout from "@/components/BaseLayout.vue";
 import TileButton from "@/components/home/TileButton.vue";
 export default {
   name: "HomePage",
   components: {
-    BaseLayout,
     TileButton
   },
   data() {

@@ -1,5 +1,6 @@
 <script>
 import {IonButton, IonIcon, IonLabel} from "@ionic/vue";
+import navigateToPath from "@/mixins/navigateToPath.js";
 
 export default {
   name: "BottomToolbarButton",
@@ -13,12 +14,12 @@ export default {
 </script>
 
 <template>
-  <ion-button>
-    <div class="custom-bottom-toolbar-button">
-      <ion-icon :icon="icon"></ion-icon>
-      <ion-label>{{ label }}</ion-label>
-    </div>
-  </ion-button>
+    <ion-button :router-link="path">
+      <div class="custom-bottom-toolbar-button">
+        <ion-icon :icon="icon"></ion-icon>
+        <ion-label>{{ label }}</ion-label>
+      </div>
+    </ion-button>
 </template>
 
 <style scoped lang="scss">

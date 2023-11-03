@@ -5,7 +5,9 @@ export default {
 </script>
 
 <template>
-<h2>Active Task</h2>
+  <base-layout>
+    <h2>Active Task</h2>
+  </base-layout>
 </template>
 
 <style scoped lang="scss">
