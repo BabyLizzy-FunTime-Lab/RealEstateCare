@@ -5,7 +5,9 @@ export default {
 </script>
 
 <template>
-
+  <base-layout>
+    <h2>Knowledge Base</h2>
+  </base-layout>
 </template>
 
 <style scoped lang="scss">

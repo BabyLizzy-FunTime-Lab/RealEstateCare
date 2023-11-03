@@ -22,7 +22,23 @@ const routes = [
   {
     path: '/information',
     component: () => import('../views/bottomToolbarViews/InformationView.vue')
-  }
+  },
+  {
+    path: '/scheduled',
+    component: () => import('../views/homeViews/ScheduledView.vue')
+  },
+  {
+    path: '/completed',
+    component: () => import('../views/homeViews/CompletedView.vue')
+  },
+  {
+    path: '/knowledge-base',
+    component: () => import('../views/homeViews/KnowledgeBaseView.vue')
+  },
+  {
+    path: '/settings',
+    component: () => import('../views/homeViews/SettingsView.vue')
+  },
 ]
 
 const router = createRouter({

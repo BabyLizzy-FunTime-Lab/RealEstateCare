@@ -1,6 +1,5 @@
 <script>
 import {IonButton, IonIcon, IonLabel} from "@ionic/vue";
-import navigateToPath from "@/mixins/navigateToPath.js";
 
 export default {
   name: "BottomToolbarButton",
@@ -33,6 +32,11 @@ ion-icon {
   font-size: 1.5em;
 }
 ion-button {
+  text-transform: capitalize;
   font-size: .8em;
+  ion-label {
+    font-weight: 100;
+    font-size: 1em;
+  }
 }
 </style>

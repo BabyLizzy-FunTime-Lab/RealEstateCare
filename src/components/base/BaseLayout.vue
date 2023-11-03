@@ -38,7 +38,7 @@ export default {
                   src="/icons/toolbar/toolbar-bell-icon.png"
                   alt="Bell Icon"/>
             </ion-button>
-            <ion-button>
+            <ion-button router-link="/settings">
               <ion-img
                   class="toolbar__icon"
                   src="/icons/toolbar/toolbar-settings-icon.png"
@@ -66,7 +66,7 @@ export default {
 <style scoped lang="scss">
 .top-decoration {
   height: 1.1em;
-  background-color:var(--ion-color-secondary);
+  background-color: var(--ion-color-secondary);
 }
 .toolbar--top, .toolbar--bottom {
   --color: white;
