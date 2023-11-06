@@ -1,0 +1,24 @@
+{
+  "user-inspector": [
+    {
+      "id": 1,
+      "name": "José Rasmussen",
+      "password": "123",
+      "avatar": ""
+    },
+    {
+      "id": 2,
+      "name": "Luis Garcia",
+      "password": "abc",
+      "avatar": ""
+    }
+  ],
+  "user-admin": [
+    {
+      "id": 3,
+      "name": "José Rasmussen",
+      "password": "123abc",
+      "avatar": ""
+    }
+  ]
+}

@@ -87,4 +87,8 @@ export default {
     justify-content: space-between;
   }
 }
+ion-content {
+  --padding-start: .2em;
+  --padding-end: .2em;
+}
 </style>
