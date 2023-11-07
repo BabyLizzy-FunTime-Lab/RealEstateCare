@@ -3,14 +3,21 @@ import {IonPage, IonButtons, IonImg, IonLabel, IonButton, IonIcon,
   IonContent, IonHeader, IonTitle, IonToolbar, IonFooter} from "@ionic/vue";
 import { build, search, alertCircle } from 'ionicons/icons';
 import BottomToolbarButton from "@/components/toolbar/BottomToolbarButton.vue";
+import {useLoginStore} from "@/stores/LoginStore.js";
+import LoginForm from "@/components/base/LoginForm.vue";
 
 export default {
   name: "BaseLayout",
   components: {
     BottomToolbarButton, IonPage, IonButtons, IonImg, IonLabel,
-    IonButton, IonIcon, IonContent, IonTitle, IonHeader, IonToolbar, IonFooter},
+    IonButton, IonIcon, IonContent, IonTitle, IonHeader, IonToolbar, IonFooter, LoginForm},
   setup() {
     return { alertCircle, build, search };
+  },
+  data() {
+    return {
+      store: useLoginStore()
+    }
   },
   methods: {
     print(icon) {
@@ -49,7 +56,8 @@ export default {
       </div>
     </ion-header>
     <ion-content>
-      <slot></slot>
+      <LoginForm v-if="store.userId === null"></LoginForm>
+      <slot v-else-if="store.userId === true"></slot>
     </ion-content>
     <ion-footer>
       <ion-toolbar class="toolbar--bottom">

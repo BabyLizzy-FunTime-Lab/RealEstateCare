@@ -3,7 +3,8 @@ import {defineStore} from "pinia";
 export const useLoginStore = defineStore('login', {
     state: () => {
         return {
-            checkLoginStore: 'Store works'
+            checkLoginStore: 'Store works',
+            userId: null
         }
     },
     getters: {

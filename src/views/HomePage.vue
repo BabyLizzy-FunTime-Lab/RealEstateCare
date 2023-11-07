@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import {useHouseStore} from "@/stores/HouseStore.js";
 import TileButton from "@/components/home/TileButton.vue";
 export default {
   name: "HomePage",
@@ -20,7 +19,7 @@ export default {
   },
   data() {
     return {
-      store: useHouseStore()
+
     }
   }
 }
