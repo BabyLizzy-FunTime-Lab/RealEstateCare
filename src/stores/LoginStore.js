@@ -15,7 +15,7 @@ export const useLoginStore = defineStore('login', {
         fetchUser() {
             this.loadingStatus = true
             // This should happen on the server.
-            axios.get(baseBbUrl + "user-inspector")
+            axios.get(baseBbUrl + "/user-inspector")
                 .then(result => {
                     console.log(result);
                 })
