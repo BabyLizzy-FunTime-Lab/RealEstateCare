@@ -12,7 +12,7 @@ export const useLoginStore = defineStore('login', {
         }
     },
     actions: {
-        fetchUser(name, password) {
+        fetchUser() {
             this.loadingStatus = true
             // This should happen on the server.
             axios.get(baseBbUrl + "user-inspector")

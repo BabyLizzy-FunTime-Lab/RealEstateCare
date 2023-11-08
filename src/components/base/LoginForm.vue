@@ -1,9 +1,15 @@
 <script>
-import {IonList, IonItem, IonInput} from "@ionic/vue";
+import {IonList, IonItem, IonInput, IonListHeader, IonLabel, IonButton} from "@ionic/vue";
+import {useLoginStore} from "@/stores/LoginStore.js";
 
 export default {
   name: "LoginForm",
-  components: {IonList, IonItem, IonInput}
+  components: {IonList, IonItem, IonInput, IonListHeader, IonLabel, IonButton},
+  data() {
+    return {
+      loginStore: useLoginStore()
+    }
+  }
 }
 </script>
 
@@ -20,7 +26,7 @@ export default {
     <ion-item>
       <ion-input label="password:"/>
     </ion-item>
-    <ion-button expand="full" color="primary">Go!</ion-button>
+    <ion-button expand="full" color="primary" @click="loginStore.fetchUser()">Go!</ion-button>
   </ion-list>
   <p>Needs username and password</p>
   <p>On login the userID gets updated in the state.</p>
