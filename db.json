@@ -2,12 +2,14 @@
   "user-inspector": [
     {
       "id": 1,
+      "access": "inspector",
       "name": "José Rasmussen",
       "password": "123",
       "avatar": ""
     },
     {
       "id": 2,
+      "access": "inspector",
       "name": "Luis Garcia",
       "password": "abc",
       "avatar": ""
@@ -16,6 +18,7 @@
   "user-admin": [
     {
       "id": 3,
+      "access": "admin",
       "name": "José Rasmussen",
       "password": "123abc",
       "avatar": ""
