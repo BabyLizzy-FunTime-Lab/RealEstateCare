@@ -1,6 +1,6 @@
 <script>
 import {IonPage, IonButtons, IonImg, IonLabel, IonButton, IonIcon,
-  IonContent, IonHeader, IonTitle, IonToolbar, IonFooter} from "@ionic/vue";
+  IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonProgressBar} from "@ionic/vue";
 import { build, search, alertCircle } from 'ionicons/icons';
 import BottomToolbarButton from "@/components/toolbar/BottomToolbarButton.vue";
 import {useLoginStore} from "@/stores/LoginStore.js";
@@ -10,13 +10,14 @@ export default {
   name: "BaseLayout",
   components: {
     BottomToolbarButton, IonPage, IonButtons, IonImg, IonLabel,
-    IonButton, IonIcon, IonContent, IonTitle, IonHeader, IonToolbar, IonFooter, LoginForm},
+    IonButton, IonIcon, IonContent, IonTitle, IonHeader, IonToolbar,
+    IonFooter, LoginForm, IonProgressBar},
   setup() {
     return { alertCircle, build, search };
   },
   data() {
     return {
-      store: useLoginStore()
+      loginStore: useLoginStore()
     }
   },
   methods: {
@@ -54,10 +55,11 @@ export default {
           </ion-buttons>
         </ion-toolbar>
       </div>
+      <ion-progress-bar v-if="loginStore.loadingStatus" color="secondary" type="indeterminate"></ion-progress-bar>
     </ion-header>
     <ion-content>
-      <LoginForm v-if="store.userId === null"></LoginForm>
-      <slot v-else-if="store.userId === true"></slot>
+      <LoginForm v-if="!loginStore.userId"></LoginForm>
+      <slot v-else-if="loginStore.userId"></slot>
     </ion-content>
     <ion-footer>
       <ion-toolbar class="toolbar--bottom">
