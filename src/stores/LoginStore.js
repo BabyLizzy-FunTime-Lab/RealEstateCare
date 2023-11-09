@@ -20,20 +20,21 @@ export const useLoginStore = defineStore('login', {
                     result.data.forEach( user => {
                         if(user.name === inputName && user.password === inputPassword) {
                             this.userId = user.id;
+                            this.errors = null;
+                            console.log("Login successful");
                         }
                     })
                     if(this.userId === null) {
-                        alert("user not found or password incorrect");
+                        this.errors = "User was not found or password incorrect";
+                        console.warn("Login problem: User was not found or password incorrect");
                     }
                     this.loadingStatus = false
-                    console.log(result);
                 })
                 .catch(err => {
                     this.loadingStatus = false;
                     this.userId = null;
-                    this.errors = err;
-                    console.warn("We got an error on login");
-                    console.warn(this.errors);
+                    this.errors = err.message;
+                    console.warn("We got an error on login", this.errors);
                 })
         }
     },
