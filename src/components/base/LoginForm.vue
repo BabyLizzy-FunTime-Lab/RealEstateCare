@@ -7,7 +7,9 @@ export default {
   components: {IonList, IonItem, IonInput, IonListHeader, IonLabel, IonButton},
   data() {
     return {
-      loginStore: useLoginStore()
+      loginStore: useLoginStore(),
+      username: "",
+      password: "",
     }
   }
 }
@@ -21,12 +23,12 @@ export default {
       </ion-label>
     </ion-list-header>
     <ion-item>
-      <ion-input label="username:"/>
+      <ion-input type="text" v-model="username" label="username:"/>
     </ion-item>
     <ion-item>
-      <ion-input label="password:"/>
+      <ion-input type="password" v-model="password" label="password:"/>
     </ion-item>
-    <ion-button expand="full" color="primary" @click="loginStore.fetchUser()">Go!</ion-button>
+    <ion-button expand="full" color="primary" @click="loginStore.fetchUser(username, password)">Go!</ion-button>
   </ion-list>
   <p>Needs username and password</p>
   <p>On login the userID gets updated in the state.</p>

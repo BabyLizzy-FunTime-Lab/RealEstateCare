@@ -13,6 +13,13 @@
       "name": "Luis Garcia",
       "password": "abc",
       "avatar": ""
+    },
+    {
+      "id": 3,
+      "access": "inspector",
+      "name": "user",
+      "password": "123",
+      "avatar": ""
     }
   ],
   "user-admin": [

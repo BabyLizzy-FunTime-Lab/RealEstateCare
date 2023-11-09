@@ -9,24 +9,36 @@ State Management is done with Pinia.
 ## Typescript disabled
 This project was build with plain JS.
 
-## HTTP Client
-Uses axios for api calls.
+## Install project
 ```sh
-npm install axios
+npm install
 ```
 
-## CSS Pre-processor
-Uses sass for better CSS.
+## Ionic CLI is needed
 ```sh
-npm add -D sass
+npm install -g @ionic/cli@latest
 ```
-
-## Dummy data
-- Textdata: Uses my-json-server for dummy data.<br/>https://my-json-server.typicode.com/
-- Images: Images are stored in cloudinary.
 
 ## Start server
 ```sh
 ionic serve
 ```
+
+## HTTP Client
+Uses axios for api calls. (installed with "npm install")
+```sh
+npm install axios
+```
+
+## CSS Pre-processor
+Uses sass for better CSS. (Installed with "npm install")
+```sh
+npm add -D sass
+```
+
+## Dummy data
+- Data db: Uses my-json-server for dummy data.<br/>https://my-json-server.typicode.com/
+- Media db: Images are stored in cloudinary.
+
+
 
