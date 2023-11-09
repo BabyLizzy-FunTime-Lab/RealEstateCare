@@ -8,7 +8,7 @@ export const useLoginStore = defineStore('login', {
             checkLoginStore: 'Store works',
             loadingStatus: false,
             userId: null,
-            errors: null
+            errorMessage: null
         }
     },
     actions: {
@@ -20,12 +20,12 @@ export const useLoginStore = defineStore('login', {
                     result.data.forEach( user => {
                         if(user.name === inputName && user.password === inputPassword) {
                             this.userId = user.id;
-                            this.errors = null;
+                            this.errorMessage = null;
                             console.log("Login successful");
                         }
                     })
                     if(this.userId === null) {
-                        this.errors = "User was not found or password incorrect";
+                        this.errorMessage = "User was not found or password incorrect";
                         console.warn("Login problem: User was not found or password incorrect");
                     }
                     this.loadingStatus = false
@@ -33,9 +33,12 @@ export const useLoginStore = defineStore('login', {
                 .catch(err => {
                     this.loadingStatus = false;
                     this.userId = null;
-                    this.errors = err.message;
-                    console.warn("We got an error on login", this.errors);
+                    this.errorMessage = err.message;
+                    console.warn("We got an error on login", this.errorMessage);
                 })
+        },
+        setErrorMessage(errValue) {
+            this.errorMessage = errValue;
         }
     },
     getters: {
