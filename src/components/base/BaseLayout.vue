@@ -1,6 +1,8 @@
 <script>
-import {IonPage, IonButtons, IonImg, IonLabel, IonButton, IonIcon,
-  IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonProgressBar} from "@ionic/vue";
+import {IonPage, IonButtons, IonImg,
+  IonLabel, IonButton, IonIcon,
+  IonContent, IonHeader, IonTitle,
+  IonToolbar, IonFooter, IonProgressBar, IonAvatar} from "@ionic/vue";
 import { build, search, alertCircle } from 'ionicons/icons';
 import BottomToolbarButton from "@/components/toolbar/BottomToolbarButton.vue";
 import {useLoginStore} from "@/stores/LoginStore.js";
@@ -11,7 +13,7 @@ export default {
   components: {
     BottomToolbarButton, IonPage, IonButtons, IonImg, IonLabel,
     IonButton, IonIcon, IonContent, IonTitle, IonHeader, IonToolbar,
-    IonFooter, LoginForm, IonProgressBar},
+    IonFooter, LoginForm, IonProgressBar, IonAvatar},
   setup() {
     return { alertCircle, build, search };
   },
@@ -23,7 +25,7 @@ export default {
   methods: {
     print(icon) {
       console.log(icon);
-    }
+    },
   }
 }
 </script>
@@ -40,6 +42,13 @@ export default {
               src="/logos/real-estate-care-logo.png"
               alt="Real Estate Logo" slot="start"/>
           <ion-buttons slot="secondary">
+            <ion-button v-if="loginStore.getLoginStatus" router-link="/user-info">
+              <ion-avatar>
+                <ion-img
+                    alt="Silhouette of a person's head"
+                    :src="loginStore.userInfo.userAvatar" />
+              </ion-avatar>
+            </ion-button>
             <ion-button router-link="/search">
               <ion-img
                   class="toolbar__icon"
@@ -58,8 +67,8 @@ export default {
       <ion-progress-bar v-if="loginStore.loadingStatus" color="secondary" type="indeterminate"></ion-progress-bar>
     </ion-header>
     <ion-content>
-      <LoginForm v-if="!loginStore.userId"></LoginForm>
-      <slot v-else-if="loginStore.userId"></slot>
+      <LoginForm v-if="!loginStore.loginStatus"></LoginForm>
+      <slot v-else-if="loginStore.loginStatus"></slot>
     </ion-content>
     <ion-footer>
       <ion-toolbar class="toolbar--bottom">
@@ -87,8 +96,14 @@ export default {
     height: 2.3em;
     padding-left: .5em;
   }
-  .toolbar__icon {
-    height: 1.7em;
+  .toolbar__icon, ion-avatar {
+    height: 1.6em;
+    border-radius: 1em;
+  }
+  ion-avatar {
+    width: 1.6em;
+    background-color: lightgray;
+    border: .2em solid var(--ion-color-secondary);
   }
 }
 .toolbar--bottom {

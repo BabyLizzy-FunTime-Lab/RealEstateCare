@@ -39,6 +39,10 @@ const routes = [
     path: '/settings',
     component: () => import('../views/homeViews/SettingsView.vue')
   },
+  {
+    path: '/user-info',
+    component: () => import('../views/topToolbarViews/UserInfo.vue')
+  }
 ]
 
 const router = createRouter({

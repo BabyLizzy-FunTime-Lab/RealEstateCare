@@ -7,7 +7,8 @@ export const useLoginStore = defineStore('login', {
         return {
             checkLoginStore: 'Store works',
             loadingStatus: false,
-            userId: null,
+            loginStatus: false,
+            userInfo: Object,
             errorMessage: null
         }
     },
@@ -19,13 +20,22 @@ export const useLoginStore = defineStore('login', {
                 .then(result => {
                     result.data.forEach( user => {
                         if(user.name === inputName && user.password === inputPassword) {
-                            this.userId = user.id;
+                            this.loginStatus = true;
+                            this.userInfo = {
+                                userId: user.id,
+                                userName: user.name,
+                                userAccess: user.access,
+                                userAvatar: "/icons/toolbar/toolbar-default-avatar.svg"
+                            }
+                            if(user.avatar !== "") {
+                                this.userInfo.userAvatar = user.avatar;
+                            }
                             this.errorMessage = null;
                             console.log("Login successful");
                         }
                     })
-                    if(this.userId === null) {
-                        this.errorMessage = "User was not found or password incorrect";
+                    if(!this.userInfo.userId) {
+                        this.errorMessage = "User was not found or the password is incorrect.";
                         console.warn("Login problem: User was not found or password incorrect");
                     }
                     this.loadingStatus = false
@@ -42,8 +52,12 @@ export const useLoginStore = defineStore('login', {
         }
     },
     getters: {
-        getCheckLoginStore(state) {
-            return state.checkLoginStore;
-        }
+        getLoginStatus(state) {
+            return state.loginStatus;
+        },
+        getUserInfo(state) {
+          return "derp";
+
+        },
     }
 })
