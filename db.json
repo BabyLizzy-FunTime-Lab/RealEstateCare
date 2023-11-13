@@ -20,7 +20,15 @@
       "name": "user",
       "password": "123",
       "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/c_fill,w_600,h_600,g_auto/v1699872651/RealEstateCareMedia/userAvatars/user-3.webp"
+    },
+    {
+      "id": 4,
+      "access": "admin",
+      "name": "admin",
+      "password": "123abc",
+      "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/c_fill,w_600,h_600,g_auto/v1699873973/RealEstateCareMedia/userAvatars/admin-4_bb8zpz.webp"
     }
+
   ],
   "user-admin": [
     {

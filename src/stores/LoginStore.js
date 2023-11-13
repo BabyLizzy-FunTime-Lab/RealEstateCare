@@ -1,6 +1,9 @@
 import {defineStore} from "pinia";
 import axios from "axios";
+
+// Default variables.
 const baseBbUrl = "https://my-json-server.typicode.com/BabyLizzy-FunTime-Lab/RealEstateCare";
+const defaultAvatar = "/icons/toolbar/toolbar-default-avatar.svg";
 
 export const useLoginStore = defineStore('login', {
     state: () => {
@@ -9,6 +12,7 @@ export const useLoginStore = defineStore('login', {
             loadingStatus: false,
             loginStatus: false,
             userInfo: Object,
+            userAvatar: defaultAvatar,
             errorMessage: null
         }
     },
@@ -22,19 +26,18 @@ export const useLoginStore = defineStore('login', {
                         if(user.name === inputName && user.password === inputPassword) {
                             this.loginStatus = true;
                             this.userInfo = {
-                                userId: user.id,
-                                userName: user.name,
-                                userAccess: user.access,
-                                userAvatar: "/icons/toolbar/toolbar-default-avatar.svg"
+                                id: user.id,
+                                name: user.name,
+                                access: user.access,
                             }
                             if(user.avatar !== "") {
-                                this.userInfo.userAvatar = user.avatar;
+                                this.userAvatar = user.avatar;
                             }
                             this.errorMessage = null;
                             console.log("Login successful");
                         }
                     })
-                    if(!this.userInfo.userId) {
+                    if(!this.userInfo.id) {
                         this.errorMessage = "User was not found or the password is incorrect.";
                         console.warn("Login problem: User was not found or password incorrect");
                     }
@@ -42,13 +45,21 @@ export const useLoginStore = defineStore('login', {
                 })
                 .catch(err => {
                     this.loadingStatus = false;
-                    this.userId = null;
+                    this.userInfo = {};
                     this.errorMessage = err.message;
                     console.warn("We got an error on login", this.errorMessage);
                 })
         },
         setErrorMessage(errValue) {
             this.errorMessage = errValue;
+        },
+        logoutUser() {
+            console.log("Logging out...");
+            this.loginStatus = false;
+            this.loadingStatus = false;
+            this.userInfo = {};
+            this.errorMessage = null;
+            console.log("Logout complete.");
         }
     },
     getters: {
@@ -56,8 +67,10 @@ export const useLoginStore = defineStore('login', {
             return state.loginStatus;
         },
         getUserInfo(state) {
-          return "derp";
-
+            return state.userInfo;
         },
+        getUserAvatar(state) {
+            return state.userAvatar;
+        }
     }
 })

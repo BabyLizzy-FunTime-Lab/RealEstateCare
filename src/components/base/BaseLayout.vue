@@ -45,8 +45,8 @@ export default {
             <ion-button v-if="loginStore.getLoginStatus" router-link="/user-info">
               <ion-avatar>
                 <ion-img
-                    alt="Silhouette of a person's head"
-                    :src="loginStore.userInfo.userAvatar" />
+                    alt="Icon-Image of the user."
+                    :src="loginStore.getUserAvatar" />
               </ion-avatar>
             </ion-button>
             <ion-button router-link="/search">
