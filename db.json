@@ -38,5 +38,16 @@
       "password": "123abc",
       "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/c_fill,w_600,h_600,g_auto/v1699873973/RealEstateCareMedia/userAvatars/admin-4_bb8zpz.webp"
     }
-  ]
+  ],
+  "inspections": {
+    "damage-control": [
+      {
+        "id": "dc-1",
+        "damage": "king kong"
+      }
+    ],
+    "backlog-maintenance": [],
+    "technical-installation-inspections": [],
+    "inventory-of-changes": []
+  }
 }
