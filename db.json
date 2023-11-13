@@ -3,32 +3,32 @@
     {
       "id": 1,
       "access": "inspector",
-      "name": "José Rasmussen",
+      "name": "Miguel",
       "password": "123",
-      "avatar": ""
+      "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/c_fill,w_600,h_600,g_auto/v1699872649/RealEstateCareMedia/userAvatars/miguel-1.webp"
     },
     {
       "id": 2,
       "access": "inspector",
-      "name": "Luis Garcia",
+      "name": "Luisa",
       "password": "abc",
-      "avatar": ""
+      "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/c_fill,w_600,h_600,g_auto/v1699872648/RealEstateCareMedia/userAvatars/luisa-2.webp"
     },
     {
       "id": 3,
       "access": "inspector",
       "name": "user",
       "password": "123",
-      "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699723212/RealEstateCareMedia/userAvatars/user-3.jpg"
+      "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/c_fill,w_600,h_600,g_auto/v1699872651/RealEstateCareMedia/userAvatars/user-3.webp"
     }
   ],
   "user-admin": [
     {
       "id": 3,
       "access": "admin",
-      "name": "José Rasmussen",
+      "name": "admin",
       "password": "123abc",
-      "avatar": ""
+      "avatar": "https://res.cloudinary.com/babylizzyevee/image/upload/c_fill,w_600,h_600,g_auto/v1699873973/RealEstateCareMedia/userAvatars/admin-4_bb8zpz.webp"
     }
   ]
 }
