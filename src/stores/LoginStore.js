@@ -58,6 +58,7 @@ export const useLoginStore = defineStore('login', {
             this.loginStatus = false;
             this.loadingStatus = false;
             this.userInfo = {};
+            this.userAvatar = defaultAvatar;
             this.errorMessage = null;
             console.log("Logout complete.");
         }
