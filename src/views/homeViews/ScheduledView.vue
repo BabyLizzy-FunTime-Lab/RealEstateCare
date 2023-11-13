@@ -1,6 +1,9 @@
 <script>
+import {IonButton, IonInput, IonItem, IonLabel, IonList, IonListHeader} from "@ionic/vue";
+
 export default {
-  name: "ScheduledView"
+  name: "ScheduledView",
+  components: {IonList, IonItem, IonListHeader, IonInput, IonLabel, IonButton}
 }
 </script>
 
