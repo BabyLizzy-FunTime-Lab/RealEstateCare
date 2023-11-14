@@ -9,7 +9,12 @@ export default {
 
 <template>
   <base-layout>
-    <h2>Scheduled Tasks</h2>
+    <ion-list>
+      <ion-list-header color="primary">
+        <ion-label><h2>Scheduled Tasks</h2></ion-label>
+      </ion-list-header>
+    </ion-list>
+
     <p>We'll use v-if to show the individual forms onclick. The forms are made as components.</p>
     <p>Each form get it's own send button and gets automaticaly tagged with the id of the logged in inspector.</p>
     <p>the forms are dropdowns. All can be open and closed at anytime so teh user may copy paste if needed.</p>

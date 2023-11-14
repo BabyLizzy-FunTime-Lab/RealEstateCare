@@ -49,7 +49,8 @@
         "new-damage": true,
         "damage-category": "normaal gebruik",
         "emergency": true,
-        "description": "Broken front door."
+        "description": "Broken front door.",
+        "images": []
       },
       {
         "id": "dc-2",
@@ -59,7 +60,8 @@
         "new-damage": true,
         "damage-category": "slijtage",
         "emergency": true,
-        "description": "Bedroom curtain rail is broken."
+        "description": "Bedroom curtain rail is broken.",
+        "images": []
       },
       {
         "id": "dc-2",
@@ -69,7 +71,8 @@
         "new-damage": false,
         "damage-category": "calamiteit",
         "emergency": true,
-        "description": "Sinterklaas riot damage."
+        "description": "Sinterklaas riot damage.",
+        "images": []
       }
     ],
     "backlog-maintenance": [
@@ -80,7 +83,8 @@
         "complete-date": "2023-11-14",
         "maintenance-category": "painting",
         "emergency": false,
-        "cost-indication": "500-1500"
+        "cost-indication": "500-1500",
+        "images": []
       },
       {
         "id": "bm-2",
@@ -89,7 +93,8 @@
         "complete-date": "2023-11-14",
         "maintenance-category": "elektra",
         "emergency": true,
-        "cost-indication": "1500+"
+        "cost-indication": "1500+",
+        "images": []
       }
     ],
     "technical-installation-inspections": [
@@ -102,7 +107,8 @@
         "reported-problem": "The heating doesn't work.",
         "test-procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965859/RealEstateCareMedia/pdf-files/grid_landscape_lt9m4f.jpg",
         "approval": true,
-        "comments": "The heater wasn't just faulty. It was missing!!"
+        "comments": "The heater wasn't just faulty. It was missing!!",
+        "images": []
       },
       {
         "id": "tii-2",
@@ -113,7 +119,8 @@
         "reported-problem": "The airco is broken and needs replacement.",
         "test-procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965859/RealEstateCareMedia/pdf-files/grid_landscape_lt9m4f.jpg",
         "approval": true,
-        "comments": "The home owners are elderly and need this urgently for the comming heatwave."
+        "comments": "The home owners are elderly and need this urgently for the comming heatwave.",
+        "images": []
       }
     ],
     "inventory-of-changes": [
@@ -126,7 +133,8 @@
         "executed-by": "tenant",
         "installation-description": "The tenant installed an extra airco.",
         "action-to-undertake": "needs inspection",
-        "comments": "We need to check if the installation was done properly."
+        "comments": "We need to check if the installation was done properly.",
+        "images": []
       },
       {
         "id": "ioc-2",
@@ -137,7 +145,8 @@
         "executed-by": "contractor",
         "installation-description": "An extra toilet was installed.",
         "action-to-undertake": "removal",
-        "comments": "The installation was not done properly and it causes leaks."
+        "comments": "The installation was not done properly and it causes leaks.",
+        "images": []
       },
       {
         "id": "ioc-3",
@@ -148,7 +157,8 @@
         "executed-by": "unknown",
         "installation-description": "A higher donkey gate was installed.",
         "action-to-undertake": "modify and inspect",
-        "comments": "A new donkey gate was installed but it doesn't seem to work properly. The donkeys still get out"
+        "comments": "A new donkey gate was installed but it doesn't seem to work properly. The donkeys still get out",
+        "images": []
       }
     ]
   }

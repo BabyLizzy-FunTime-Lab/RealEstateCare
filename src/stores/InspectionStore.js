@@ -6,6 +6,9 @@ export const useInspectionStore = defineStore('inspections', {
             checkInspectionStore: 'Store works!'
         }
     },
+    actions: {
+
+    },
     getters: {
         getCheckInspectionStore(state) {
             return state.checkInspectionStore;
