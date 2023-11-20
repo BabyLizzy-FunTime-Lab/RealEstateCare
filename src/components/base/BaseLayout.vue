@@ -6,7 +6,7 @@ import {IonPage, IonButtons, IonImg,
 import { build, search, alertCircle } from 'ionicons/icons';
 import BottomToolbarButton from "@/components/toolbar/BottomToolbarButton.vue";
 import {useLoginStore} from "@/stores/LoginStore.js";
-import LoginForm from "@/components/base/LoginForm.vue";
+import LoginForm from "@/components/login/LoginForm.vue";
 
 export default {
   name: "BaseLayout",

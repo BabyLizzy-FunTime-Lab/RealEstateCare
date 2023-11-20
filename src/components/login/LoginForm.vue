@@ -36,12 +36,14 @@ export default {
     <ion-item>
       <ion-input type="text"
                  v-model="username"
+                 placeholder="user"
                  label="username:"
                  @keyup.enter="loginStore.fetchUser(username, password)"/>
     </ion-item>
     <ion-item>
       <ion-input type="password"
                  v-model="password"
+                 placeholder="123"
                  label="password:"
                  @keyup.enter="loginStore.fetchUser(username, password)"/>
     </ion-item>

@@ -1,5 +1,5 @@
 {
-  "user-inspector": [
+  "user_inspector": [
     {
       "id": "1",
       "access": "inspector",
@@ -30,7 +30,7 @@
     }
 
   ],
-  "user-admin": [
+  "user_admin": [
     {
       "id": "3",
       "access": "admin",
@@ -40,14 +40,14 @@
     }
   ],
   "inspections": {
-    "damage-control": [
+    "damage_inspection": [
       {
         "id": "dc-1",
         "inspector": "1",
         "location": "hoofdstraat 1, Rotterdam",
-        "complete-date": "2023-09-19",
-        "new-damage": true,
-        "damage-category": "normaal gebruik",
+        "complete_date": "2023-09-19",
+        "new_damage": true,
+        "damage_category": "normaal gebruik",
         "emergency": true,
         "description": "Broken front door.",
         "images": []
@@ -56,9 +56,9 @@
         "id": "dc-2",
         "inspector": "2",
         "location": "hoofdstraat 2, Rotterdam",
-        "complete-date": "2023-08-02",
-        "new-damage": true,
-        "damage-category": "slijtage",
+        "complete_date": "2023-08-02",
+        "new_damage": true,
+        "damage_category": "slijtage",
         "emergency": true,
         "description": "Bedroom curtain rail is broken.",
         "images": []
@@ -67,45 +67,45 @@
         "id": "dc-2",
         "inspector": "3",
         "location": "dorpstraat 3, Rhoon",
-        "complete-date": "2023-11-14",
-        "new-damage": false,
-        "damage-category": "calamiteit",
+        "complete_date": "2023-11-14",
+        "new_damage": false,
+        "damage_category": "calamiteit",
         "emergency": true,
         "description": "Sinterklaas riot damage.",
         "images": []
       }
     ],
-    "backlog-maintenance": [
+    "backlog_maintenance": [
       {
         "id": "bm-1",
         "inspector": "1",
         "location": "hogedijk 4, Hoogvliet",
-        "complete-date": "2023-11-14",
-        "maintenance-category": "painting",
+        "complete_date": "2023-11-14",
+        "maintenance_category": "painting",
         "emergency": false,
-        "cost-indication": "500-1500",
+        "cost_indication": "500-1500",
         "images": []
       },
       {
         "id": "bm-2",
         "inspector": "3",
         "location": "apollostraat 5, Rotterdam",
-        "complete-date": "2023-11-14",
-        "maintenance-category": "elektra",
+        "complete_date": "2023-11-14",
+        "maintenance_category": "elektra",
         "emergency": true,
-        "cost-indication": "1500+",
+        "cost_indication": "1500+",
         "images": []
       }
     ],
-    "technical-installation-inspections": [
+    "technical_installation_inspection": [
       {
         "id": "tii-1",
         "inspector": "1",
         "location": "keizerstraat 6, Zuid-Land",
-        "complete-date": "2023-11-14",
-        "installation-category": "heating",
-        "reported-problem": "The heating doesn't work.",
-        "test-procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965859/RealEstateCareMedia/pdf-files/grid_landscape_lt9m4f.jpg",
+        "complete_date": "2023-11-14",
+        "installation_category": "heating",
+        "reported_problem": "The heating doesn't work.",
+        "test_procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965859/RealEstateCareMedia/pdf-files/grid_landscape_lt9m4f.jpg",
         "approval": true,
         "comments": "The heater wasn't just faulty. It was missing!!",
         "images": []
@@ -114,49 +114,49 @@
         "id": "tii-2",
         "inspector": "2",
         "location": "keizerstraat 10, Zuid-Land",
-        "complete-date": "2023-11-14",
-        "installation-category": "cooling",
-        "reported-problem": "The airco is broken and needs replacement.",
-        "test-procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965859/RealEstateCareMedia/pdf-files/grid_landscape_lt9m4f.jpg",
+        "complete_date": "2023-11-14",
+        "installation_category": "cooling",
+        "reported_problem": "The airco is broken and needs replacement.",
+        "test_procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965859/RealEstateCareMedia/pdf-files/grid_landscape_lt9m4f.jpg",
         "approval": true,
         "comments": "The home owners are elderly and need this urgently for the comming heatwave.",
         "images": []
       }
     ],
-    "inventory-of-changes": [
+    "modifications": [
       {
-        "id": "ioc-1",
+        "id": "m-1",
         "inspector": "3",
         "location": "Beatrixstraat 10, Rhoon",
-        "complete-date": "2023-11-14",
-        "test-procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965880/RealEstateCareMedia/pdf-files/originaldocument_vnzksi.pdf",
-        "executed-by": "tenant",
-        "installation-description": "The tenant installed an extra airco.",
-        "action-to-undertake": "needs inspection",
+        "complete_date": "2023-11-14",
+        "test_procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965880/RealEstateCareMedia/pdf-files/originaldocument_vnzksi.pdf",
+        "executed_by": "tenant",
+        "installation_description": "The tenant installed an extra airco.",
+        "action_to_undertake": "needs inspection",
         "comments": "We need to check if the installation was done properly.",
         "images": []
       },
       {
-        "id": "ioc-2",
+        "id": "m-2",
         "inspector": "1",
         "location": "Beatrixstraat 20, Rhoon",
-        "complete-date": "2023-11-14",
-        "test-procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965880/RealEstateCareMedia/pdf-files/originaldocument_vnzksi.pdf",
-        "executed-by": "contractor",
-        "installation-description": "An extra toilet was installed.",
-        "action-to-undertake": "removal",
+        "complete_date": "2023-11-14",
+        "test_procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965880/RealEstateCareMedia/pdf-files/originaldocument_vnzksi.pdf",
+        "executed_by": "contractor",
+        "installation_description": "An extra toilet was installed.",
+        "action_to_undertake": "removal",
         "comments": "The installation was not done properly and it causes leaks.",
         "images": []
       },
       {
-        "id": "ioc-3",
+        "id": "m-3",
         "inspector": "2",
         "location": "Beatrixstraat 20, Rhoon",
-        "complete-date": "2023-11-14",
-        "test-procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965880/RealEstateCareMedia/pdf-files/originaldocument_vnzksi.pdf",
-        "executed-by": "unknown",
-        "installation-description": "A higher donkey gate was installed.",
-        "action-to-undertake": "modify and inspect",
+        "complete_date": "2023-11-14",
+        "test_procedure": "https://res.cloudinary.com/babylizzyevee/image/upload/v1699965880/RealEstateCareMedia/pdf-files/originaldocument_vnzksi.pdf",
+        "executed_by": "unknown",
+        "installation_description": "A higher donkey gate was installed.",
+        "action_to_undertake": "modify and inspect",
         "comments": "A new donkey gate was installed but it doesn't seem to work properly. The donkeys still get out",
         "images": []
       }
