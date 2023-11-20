@@ -2,17 +2,18 @@
 export default {
   name: "BaseAccordionLayout",
   props: {
-    headerName: String
+    headerName: String,
+    accordionValue: String
   }
 }
 </script>
 
 <template>
-  <ion-accordion value="first">
+  <ion-accordion :value="accordionValue">
     <ion-item slot="header" color="light">
       <ion-label>{{ headerName }}</ion-label>
     </ion-item>
-    <slot/>
+    <slot></slot>
   </ion-accordion>
 </template>
 

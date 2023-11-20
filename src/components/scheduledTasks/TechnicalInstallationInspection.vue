@@ -1,11 +1,17 @@
 <script>
+import BaseAccordionLayout from "@/components/base/BaseAccordionLayout.vue";
 export default {
-  name: "TechnicalInstallationInspection"
+  name: "TechnicalInstallationInspection",
+  components: {BaseAccordionLayout}
 }
 </script>
 
 <template>
-
+<BaseAccordionLayout header-name="Technical Installation Inspection" accordion-value="third">
+  <ion-item slot="content">
+    <ion-label>Pokémon Yellow</ion-label>
+  </ion-item>
+</BaseAccordionLayout>
 </template>
 
 <style scoped lang="scss">
