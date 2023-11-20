@@ -20,7 +20,7 @@ export const useLoginStore = defineStore('login', {
         fetchUser(inputName, inputPassword) {
             this.loadingStatus = true
             // This should happen on the server.
-            axios.get(baseBbUrl + "/user-inspector")
+            axios.get(baseBbUrl + "/user_inspector")
                 .then(result => {
                     result.data.forEach( user => {
                         if(user.name === inputName && user.password === inputPassword) {
