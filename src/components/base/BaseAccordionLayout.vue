@@ -1,6 +1,9 @@
 <script>
+import {IonAccordion, IonItem, IonLabel} from "@ionic/vue";
+
 export default {
   name: "BaseAccordionLayout",
+  components: {IonItem, IonLabel, IonAccordion},
   props: {
     headerName: String,
     accordionValue: String
