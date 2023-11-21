@@ -1,8 +1,10 @@
 <script>
 import BaseAccordionLayout from "@/components/base/BaseAccordionLayout.vue";
+import {IonItem, IonLabel} from "@ionic/vue";
+
 export default {
   name: "BacklogMaintenance",
-  components: {BaseAccordionLayout}
+  components: {BaseAccordionLayout, IonItem, IonLabel}
 }
 </script>
 

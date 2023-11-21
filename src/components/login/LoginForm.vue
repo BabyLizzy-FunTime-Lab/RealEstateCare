@@ -27,30 +27,32 @@ export default {
       :buttons="['OK']"
       @didDismiss="loginStore.setErrorMessage(null)"
   />
-  <ion-list>
-    <ion-list-header color="primary">
-      <ion-label>
-        <h2>Login</h2>
-      </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-input type="text"
-                 v-model="username"
-                 placeholder="user"
-                 label="username:"
-                 @keyup.enter="loginStore.fetchUser(username, password)"/>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password"
-                 v-model="password"
-                 placeholder="123"
-                 label="password:"
-                 @keyup.enter="loginStore.fetchUser(username, password)"/>
-    </ion-item>
-    <ion-button expand="full"
-                color="primary"
-                @click="loginStore.fetchUser(username, password)">Go!</ion-button>
-  </ion-list>
+  <form>
+    <ion-list>
+      <ion-list-header color="primary">
+        <ion-label>
+          <h2>Login</h2>
+        </ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-input type="text"
+                   v-model="username"
+                   placeholder="user"
+                   label="username:"
+                   @keyup.enter="loginStore.fetchUser(username, password)"/>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password"
+                   v-model="password"
+                   placeholder="123"
+                   label="password:"
+                   @keyup.enter="loginStore.fetchUser(username, password)"/>
+      </ion-item>
+      <ion-button expand="full"
+                  color="primary"
+                  @click="loginStore.fetchUser(username, password)">Go!</ion-button>
+    </ion-list>
+  </form>
 </template>
 
 <style scoped lang="scss">
