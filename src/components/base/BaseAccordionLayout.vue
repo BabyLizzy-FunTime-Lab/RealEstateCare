@@ -25,5 +25,6 @@ ion-item {
   margin-top: .5em;
   border-top: 2px solid var(--ion-color-secondary);
   border-left: 2px solid var(--ion-color-secondary);
+  box-sizing: border-box;
 }
 </style>
