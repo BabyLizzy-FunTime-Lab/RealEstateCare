@@ -1,11 +1,19 @@
 <script>
-import {IonItem, IonList, IonLabel, IonInput, IonText, IonTextarea, IonDatetime, IonDatetimeButton, IonModal} from "@ionic/vue";
+import {IonItem, IonList, IonLabel, IonInput,
+  IonText, IonTextarea, IonDatetime,
+  IonDatetimeButton, IonModal, IonRadioGroup, IonRadio} from "@ionic/vue";
 import BaseAccordionLayout from "@/components/base/BaseAccordionLayout.vue";
 export default {
   name: "DamageInspection",
-  components: {BaseAccordionLayout, IonLabel, IonList, IonInput, IonItem, IonText, IonTextarea, IonDatetime, IonDatetimeButton, IonModal},
+  components: {BaseAccordionLayout, IonLabel,
+    IonList, IonInput, IonItem, IonText,
+    IonTextarea, IonDatetime, IonDatetimeButton,
+    IonModal, IonRadioGroup, IonRadio},
   data() {
-
+    return {
+      locationInput: "",
+      newDamageInput: ""
+    }
   }
 }
 </script>
@@ -13,13 +21,17 @@ export default {
 <template>
 <base-accordion-layout header-name="Damage Inspection" accordion-value="first">
   <ion-item slot="content">
-    <ion-input label-placement="floating" type="text" >
-      <div slot="label">Location <ion-text color="danger">(Required)</ion-text></div>
-    </ion-input>
+    <ion-input label="Location"
+               v-model="locationInput"
+               label-placement="floating"
+               type="text"/>
   </ion-item>
   <ion-item slot="content">
     <ion-label>New Damage?</ion-label>
-    <ion-radio></ion-radio>
+    <ion-radio-group v-model="newDamageInput" name="newDamage">
+        <ion-radio justify="end" value="yes">Yes</ion-radio>
+        <ion-radio justify="end" value="no">No</ion-radio>
+    </ion-radio-group>
   </ion-item>
   <ion-item slot="content">
     <ion-label>Date</ion-label>
