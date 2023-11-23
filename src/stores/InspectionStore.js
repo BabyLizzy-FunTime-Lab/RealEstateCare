@@ -12,7 +12,15 @@ export const useInspectionStore = defineStore('inspections', {
             damage_control_result: [],
             backlog_maintenance_result: [],
             technical_installation_inspections_result: [],
-            inventory_of_changes_result: []
+            inventory_of_changes_result: [],
+            damageInspection: {
+                locationInput: "",
+                newDamageInput: "",
+                dateInput: new Date().toISOString(),
+                damageTypeInput: "",
+                emergencyInput: "",
+                commentsInput: ""
+            }
         }
     },
     actions: {

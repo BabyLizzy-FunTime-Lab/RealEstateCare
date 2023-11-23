@@ -1,18 +1,19 @@
 <script>
 import {IonItem, IonList, IonLabel, IonInput,
   IonText, IonTextarea, IonDatetime,
-  IonDatetimeButton, IonModal, IonRadioGroup, IonRadio} from "@ionic/vue";
+  IonDatetimeButton, IonModal, IonRadioGroup, IonRadio, IonSelect, IonSelectOption} from "@ionic/vue";
 import BaseAccordionLayout from "@/components/base/BaseAccordionLayout.vue";
+import {useInspectionStore} from "@/stores/InspectionStore.js";
+
 export default {
   name: "DamageInspection",
   components: {BaseAccordionLayout, IonLabel,
     IonList, IonInput, IonItem, IonText,
     IonTextarea, IonDatetime, IonDatetimeButton,
-    IonModal, IonRadioGroup, IonRadio},
+    IonModal, IonRadioGroup, IonRadio, IonSelect, IonSelectOption},
   data() {
     return {
-      locationInput: "",
-      newDamageInput: ""
+      inspectionStore: useInspectionStore(),
     }
   }
 }
@@ -22,34 +23,52 @@ export default {
 <base-accordion-layout header-name="Damage Inspection" accordion-value="first">
   <ion-item slot="content">
     <ion-input label="Location"
-               v-model="locationInput"
+               v-model="inspectionStore.damageInspection.locationInput"
+               placeholder="Input address"
                label-placement="floating"
                type="text"/>
   </ion-item>
   <ion-item slot="content">
     <ion-label>New Damage?</ion-label>
-    <ion-radio-group v-model="newDamageInput" name="newDamage">
-        <ion-radio justify="end" value="yes">Yes</ion-radio>
-        <ion-radio justify="end" value="no">No</ion-radio>
+    <ion-radio-group v-model="inspectionStore.damageInspection.newDamageInput"
+                     name="newDamage">
+        <ion-radio aria-label="Yes" label-placement="start" justify="end" value="yes">Yes</ion-radio>
+        <ion-radio aria-label="No" label-placement="start" justify="end" value="no">No</ion-radio>
     </ion-radio-group>
   </ion-item>
   <ion-item slot="content">
     <ion-label>Date</ion-label>
-    <ion-datetime-button presentation="date" datetime="date"></ion-datetime-button>
+    <ion-datetime-button aria-label="Date" presentation="date" datetime="date"></ion-datetime-button>
     <ion-modal :keep-contents-mounted="true">
-      <ion-datetime presentation="date" id="date"></ion-datetime>
+      <ion-datetime v-model="inspectionStore.damageInspection.dateInput"
+                    presentation="date" id="date"></ion-datetime>
     </ion-modal>
   </ion-item>
   <ion-item slot="content">
-    <ion-label>Damage Type</ion-label>
-
+    <ion-select v-model="inspectionStore.damageInspection.damageTypeInput"
+                label="Damage Type" placeholder="Select">
+      <ion-select-option value="deliberately">Deliberately</ion-select-option>
+      <ion-select-option value="wear">Wear</ion-select-option>
+      <ion-select-option value="violence">Violence</ion-select-option>
+      <ion-select-option value="normal use">Normal Use</ion-select-option>
+      <ion-select-option value="calamity">Calamity</ion-select-option>
+      <ion-select-option value="other">Other</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item slot="content">
     <ion-label>Emergency Action needed?</ion-label>
-    <ion-radio></ion-radio>
+    <ion-radio-group v-model="inspectionStore.damageInspection.emergencyInput"
+                     name="emergency">
+      <ion-radio aria-label="Yes" label-placement="start" justify="end" value="yes">Yes</ion-radio>
+      <ion-radio aria-label="No" label-placement="start" justify="end" value="no">No</ion-radio>
+    </ion-radio-group>
   </ion-item>
   <ion-item slot="content">
-    <ion-textarea label="Comments" label-placement="floating" placeholder="Enter your comments"></ion-textarea>
+    <ion-textarea label="Comments"
+                  v-model="inspectionStore.damageInspection.commentsInput"
+                  label-placement="floating"
+                  :auto-grow="true"
+                  placeholder="Enter your comments"></ion-textarea>
   </ion-item>
 </base-accordion-layout>
 </template>
