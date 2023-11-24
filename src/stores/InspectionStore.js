@@ -17,6 +17,7 @@ export const useInspectionStore = defineStore('inspections', {
                 locationInput: "",
                 newDamageInput: "",
                 dateInput: new Date().toISOString(),
+                selectedDamageTypeOption: "",
                 damageTypeInput: "",
                 emergencyInput: "",
                 commentsInput: ""
@@ -31,7 +32,10 @@ export const useInspectionStore = defineStore('inspections', {
                     console.log(type);
                     console.log(result.data);
                 })
-            }
+            },
+        setDamageType(state) {
+            state.damageTypeInput = state.selectedDamageTypeOption;
+        }
     },
     getters: {
         getCheckInspectionStore(state) {

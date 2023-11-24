@@ -15,6 +15,12 @@ export default {
     return {
       inspectionStore: useInspectionStore(),
     }
+  },
+  methods: {
+    customOptionSelected() {
+      this.inspectionStore.damageInspection.damageTypeInput = this.selectedOption;
+      console.log(this.selectedOption);
+    }
   }
 }
 </script>
@@ -45,8 +51,8 @@ export default {
     </ion-modal>
   </ion-item>
   <ion-item slot="content">
-    <ion-select v-model="inspectionStore.damageInspection.damageTypeInput"
-                label="Damage Type" placeholder="Select">
+    <ion-select v-model="inspectionStore.damageInspection.selectedDamageTypeOption"
+                label="Damage Type" placeholder="Select" :ioChange="inspectionStore.setDamageType">
       <ion-select-option value="deliberately">Deliberately</ion-select-option>
       <ion-select-option value="wear">Wear</ion-select-option>
       <ion-select-option value="violence">Violence</ion-select-option>
@@ -54,6 +60,10 @@ export default {
       <ion-select-option value="calamity">Calamity</ion-select-option>
       <ion-select-option value="other">Other</ion-select-option>
     </ion-select>
+  </ion-item>
+  <ion-item slot="content" v-if="inspectionStore.damageInspection.selectedDamageTypeOption === 'other'">
+    <ion-input v-model="inspectionStore.damageInspection.damageTypeInput" label="Input damage type"
+               label-placement="floating" placeholder="Here" type="text"></ion-input>
   </ion-item>
   <ion-item slot="content">
     <ion-label>Emergency Action needed?</ion-label>
