@@ -1,13 +1,17 @@
 <script>
-import {IonItem, IonList, IonLabel, IonInput,
+import {
+  IonItem, IonList, IonLabel, IonInput,
   IonText, IonTextarea, IonDatetime,
-  IonDatetimeButton, IonModal, IonRadioGroup, IonRadio, IonSelect, IonSelectOption} from "@ionic/vue";
+  IonDatetimeButton, IonModal, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton
+} from "@ionic/vue";
 import BaseAccordionLayout from "@/components/base/BaseAccordionLayout.vue";
+import BaseSaveButton from "@/components/base/BaseSaveButton.vue";
 import {useInspectionStore} from "@/stores/InspectionStore.js";
 
 export default {
   name: "DamageInspection",
-  components: {BaseAccordionLayout, IonLabel,
+  components: {
+    IonButton, BaseAccordionLayout, BaseSaveButton, IonLabel,
     IonList, IonInput, IonItem, IonText,
     IonTextarea, IonDatetime, IonDatetimeButton,
     IonModal, IonRadioGroup, IonRadio, IonSelect, IonSelectOption},
@@ -17,9 +21,8 @@ export default {
     }
   },
   methods: {
-    customOptionSelected() {
-      this.inspectionStore.damageInspection.damageTypeInput = this.selectedOption;
-      console.log(this.selectedOption);
+    saveData() {
+      console.log("Saving Damage Inspection data...");
     }
   }
 }
@@ -80,6 +83,11 @@ export default {
                   :auto-grow="true"
                   placeholder="Enter your comments"></ion-textarea>
   </ion-item>
+  <ion-item slot="content">
+    <ion-label>Photos</ion-label>
+    <ion-button color="primary">Take Photo</ion-button>
+  </ion-item>
+  <BaseSaveButton slot="content" name="Save" @click="saveData"/>
 </base-accordion-layout>
 </template>
 
