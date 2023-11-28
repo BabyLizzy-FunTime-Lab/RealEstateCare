@@ -12,6 +12,7 @@ export default {
 <BaseAccordionLayout header-name="Technical Installation Inspection" accordion-value="third">
   <ion-item slot="content">
     <ion-label>Pokémon Yellow</ion-label>
+<!--    Needs a link to the testprocedure-->
   </ion-item>
 </BaseAccordionLayout>
 </template>
