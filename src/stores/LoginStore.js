@@ -2,7 +2,8 @@ import {defineStore} from "pinia";
 import axios from "axios";
 
 // Default variables.
-const baseBbUrl = "https://my-json-server.typicode.com/BabyLizzy-FunTime-Lab/RealEstateCare";
+// const baseDbUrl = "https://my-json-server.typicode.com/BabyLizzy-FunTime-Lab/RealEstateCare";
+const baseDbUrl = "https://real-estate-care-json-1205608aa6ef.herokuapp.com";
 const defaultAvatar = "/icons/toolbar/toolbar-default-avatar.svg";
 
 export const useLoginStore = defineStore('login', {
@@ -20,24 +21,28 @@ export const useLoginStore = defineStore('login', {
         fetchUser(inputName, inputPassword) {
             this.loadingStatus = true
             // This should happen on the server.
-            axios.get(baseBbUrl + "/user_inspector")
+            axios.get(baseDbUrl + "/user_inspector?name=" + inputName + "&password=" + inputPassword)
                 .then(result => {
-                    result.data.forEach( user => {
-                        if(user.name === inputName && user.password === inputPassword) {
-                            this.loginStatus = true;
-                            this.userInfo = {
-                                id: user.id,
-                                name: user.name,
-                                access: user.access,
-                            }
-                            if(user.avatar !== "") {
-                                this.userAvatar = user.avatar;
-                            }
-                            this.errorMessage = null;
-                            console.log("Login successful");
+                    // The JSON server returns 200 even if it didn't find a match so we have to check the
+                    // return data length to see if any matches were found.
+                    if(result.data.length) {
+                        let data = result.data[0];
+                        console.log(data);
+                        console.log(data.id);
+                        this.loginStatus = true;
+                        this.userInfo = {
+                            id: data.id,
+                            name: data.name,
+                            access: data.access,
+                            avatar: data.avatar
                         }
-                    })
-                    if(!this.userInfo.id) {
+                        if(data.avatar !== "") {
+                            this.userInfo.avater = defaultAvatar ;
+                        }
+                        this.errorMessage = null;
+                        console.log(this.userInfo);
+                        console.log("Login successful");
+                    } else {
                         this.errorMessage = "User was not found or the password is incorrect.";
                         console.warn("Login problem: User was not found or password incorrect");
                     }
@@ -58,7 +63,6 @@ export const useLoginStore = defineStore('login', {
             this.loginStatus = false;
             this.loadingStatus = false;
             this.userInfo = {};
-            this.userAvatar = defaultAvatar;
             this.errorMessage = null;
             console.log("Logout complete.");
         }
@@ -68,10 +72,14 @@ export const useLoginStore = defineStore('login', {
             return state.loginStatus;
         },
         getUserInfo(state) {
-            return state.userInfo;
+            return {
+                id: state.userInfo.id,
+                name: state.userInfo.name,
+                access: state.userInfo.access
+            }
         },
         getUserAvatar(state) {
-            return state.userAvatar;
+            return state.userInfo.avatar;
         }
     }
 })
