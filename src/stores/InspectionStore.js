@@ -2,12 +2,12 @@ import {defineStore} from "pinia";
 import axios from "axios";
 
 // Default variables.
-const baseBbUrl = "https://my-json-server.typicode.com/BabyLizzy-FunTime-Lab/RealEstateCare";
+// const baseBbUrl = "https://my-json-server.typicode.com/BabyLizzy-FunTime-Lab/RealEstateCare";
+const baseDbUrl = "https://real-estate-care-json-1205608aa6ef.herokuapp.com";
 
 export const useInspectionStore = defineStore('inspections', {
     state: () => {
         return {
-            checkInspectionStore: 'Store works!',
             loadingStatus: false,
             damage_control_result: [],
             backlog_maintenance_result: [],
@@ -39,6 +39,7 @@ export const useInspectionStore = defineStore('inspections', {
                 commentsInput: ""
             },
             modifications: {
+                inspectorId: "",
                 historyRecordLink: "",
                 locationInput: "",
                 modifiedByInput: "",
@@ -51,19 +52,45 @@ export const useInspectionStore = defineStore('inspections', {
     actions: {
         fetchInspections(type) {
             this.loadingStatus = true;
-            axios.get(baseBbUrl + "/inspections")
+            axios.get(baseDbUrl + "/inspections")
                 .then(result => {
                     console.log(type);
                     console.log(result.data);
                 })
             },
+        fetchDamageInspections() {
+
+        },
+        fetchBacklogMaintenance() {
+
+        },
+        fetchModifications() {
+
+        },
+        fetchTechnicalInstallations() {
+
+        },
+        setDamageInspections() {
+
+        },
+        setBacklogMaintenance() {
+
+        },
+        setModifications() {
+
+        },
+        setTechnicalInstallations() {
+
+        },
         setDamageType(state) {
             state.damageTypeInput = state.selectedDamageTypeOption;
+        },
+        setInputValue() {
+            // Needs the value, the inspection type and the name of the state variable
+            // as arguments.
         }
     },
     getters: {
-        getCheckInspectionStore(state) {
-            return state.checkInspectionStore;
-        }
+
     }
 })
