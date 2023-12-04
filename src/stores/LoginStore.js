@@ -14,7 +14,7 @@ export const useLoginStore = defineStore('login', {
             loginStatus: false,
             userInfo: Object,
             userAvatar: defaultAvatar,
-            errorMessage: null
+            errorMessage: null,
         }
     },
     actions: {

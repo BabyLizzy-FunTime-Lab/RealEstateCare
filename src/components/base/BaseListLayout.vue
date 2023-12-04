@@ -15,7 +15,8 @@ export default {
     <ion-list-header color="primary">
       <ion-label><h2>{{listHeaderName}}</h2></ion-label>
       <ion-buttons>
-        <ion-back-button defaultHref="/" text="back">Test</ion-back-button>
+<!--        <ion-back-button defaultHref="/" text="back">Test</ion-back-button>-->
+        <ion-back-button text="back">Test</ion-back-button>
       </ion-buttons>
     </ion-list-header>
     <slot></slot>

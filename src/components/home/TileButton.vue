@@ -1,5 +1,6 @@
 <script>
 import { IonIcon, IonButton, IonImg, IonLabel } from '@ionic/vue';
+import homePage from "@/views/HomePage.vue";
 
 export default {
   name: "TileButton",
@@ -8,6 +9,11 @@ export default {
     IonButton,
     IonImg,
     IonLabel
+  },
+  data() {
+    return {
+      home: homePage
+    }
   },
   props: {
     path: String,
@@ -18,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <ion-button :router-link="path" class="ion-text-wrap">
+  <ion-button :root="home" :router-link="path" class="ion-text-wrap">
     <div class="custom-tile-button">
       <ion-img :src="icon" alt="tile icon"/>
       <ion-label>{{ name }}</ion-label>
