@@ -1,11 +1,11 @@
 <script>
 import BaseAccordionLayout from "@/components/base/BaseAccordionLayout.vue";
 import {useInspectionStore} from "@/stores/InspectionStore.js";
-import {IonItem, IonLabel} from "@ionic/vue";
+import {IonItem, IonLabel, IonInput, IonSelect, IonSelectOption} from "@ionic/vue";
 
 export default {
   name: "BacklogMaintenance",
-  components: {BaseAccordionLayout, IonItem, IonLabel},
+  components: {BaseAccordionLayout, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption},
   data() {
     return {
       inspectionStore: useInspectionStore(),

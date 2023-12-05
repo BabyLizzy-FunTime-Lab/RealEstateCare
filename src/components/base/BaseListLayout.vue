@@ -1,9 +1,15 @@
 <script>
-import {IonLabel, IonList, IonListHeader, IonButtons, IonBackButton} from "@ionic/vue";
+import {IonLabel, IonList, IonListHeader, IonButtons, IonButton, IonIcon} from "@ionic/vue";
+import {arrowBack} from "ionicons/icons";
 
 export default {
   name: "BaseListLayout",
-  components: {IonListHeader, IonList, IonLabel, IonButtons, IonBackButton},
+  methods: {
+    arrowBack() {
+      return arrowBack
+    },
+  },
+  components: {IonListHeader, IonList, IonLabel, IonButtons, IonButton, IonIcon},
   props: {
     listHeaderName: String
   }
@@ -15,8 +21,9 @@ export default {
     <ion-list-header color="primary">
       <ion-label><h2>{{listHeaderName}}</h2></ion-label>
       <ion-buttons>
-<!--        <ion-back-button defaultHref="/" text="back">Test</ion-back-button>-->
-        <ion-back-button text="back">Test</ion-back-button>
+        <ion-button router-link="/">
+          <ion-icon :icon="arrowBack()"/>
+        </ion-button>
       </ion-buttons>
     </ion-list-header>
     <slot></slot>

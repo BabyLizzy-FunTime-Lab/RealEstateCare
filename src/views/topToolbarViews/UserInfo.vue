@@ -1,11 +1,6 @@
 <template>
 <base-layout>
-  <ion-list>
-    <ion-list-header color="primary">
-      <ion-label>
-        <h2>User Information</h2>
-      </ion-label>
-    </ion-list-header>
+  <base-list-layout list-header-name="User Information">
     <ion-avatar slot="">
       <ion-img alt="Icon-Image of the user." :src="loginStore.getUserAvatar"/>
     </ion-avatar>
@@ -20,16 +15,17 @@
     <ion-button v-else expand="full"
                 color="primary"
                 router-link="/">Login</ion-button>
-  </ion-list>
+  </base-list-layout>
 </base-layout>
 </template>
 
 <script>
-import {IonList, IonListHeader, IonItem, IonLabel, IonAvatar, IonButton, IonImg} from "@ionic/vue";
+import {IonItem, IonLabel, IonAvatar, IonButton, IonImg} from "@ionic/vue";
+import baseListLayout from "@/components/base/BaseListLayout.vue";
 import {useLoginStore} from "@/stores/LoginStore.js";
 export default {
   name: "UserInfo",
-  components: {IonList, IonListHeader, IonItem, IonLabel, IonAvatar, IonButton, IonImg},
+  components: {IonItem, IonLabel, IonAvatar, IonButton, IonImg, baseListLayout},
   data() {
     return {
       loginStore: useLoginStore()

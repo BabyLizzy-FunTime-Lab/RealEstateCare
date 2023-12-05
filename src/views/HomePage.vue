@@ -2,26 +2,34 @@
     <base-layout>
       <div class="tile-container">
         <TileButton
-            name="Scheduled" path="/scheduled" icon="/icons/tile-buttons/scheduled-icon.png"/>
-        <TileButton name="Completed" path="/completed" icon="/icons/tile-buttons/completed-icon.png"/>
-        <TileButton name="Knowledge base" path="/knowledge-base" icon="/icons/tile-buttons/knowledge-base-icon.png"/>
-        <TileButton name="Settings" path="/settings" icon="/icons/tile-buttons/settings-icon.png"/>
+            router-direction="forward"
+            name="Scheduled" path="/scheduled"
+            icon="/icons/tile-buttons/scheduled-icon.png"/>
+        <TileButton
+            router-direction="forward"
+            name="Completed" path="/completed"
+            icon="/icons/tile-buttons/completed-icon.png"/>
+        <TileButton
+            router-direction="forward"
+            name="Knowledge base" path="/knowledge-base"
+            icon="/icons/tile-buttons/knowledge-base-icon.png"/>
+        <TileButton
+            router-direction="forward"
+            name="Settings" path="/settings"
+            icon="/icons/tile-buttons/settings-icon.png"/>
       </div>
     </base-layout>
 </template>
 
 <script>
+import {IonNavLink} from "@ionic/vue";
 import TileButton from "@/components/home/TileButton.vue";
 export default {
   name: "HomePage",
   components: {
-    TileButton
+    TileButton,
+    IonNavLink
   },
-  data() {
-    return {
-
-    }
-  }
 }
 </script>
 

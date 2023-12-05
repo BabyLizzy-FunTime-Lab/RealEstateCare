@@ -1,5 +1,5 @@
 <script>
-import {IonButton, IonInput, IonItem, IonLabel, IonList, IonListHeader, IonAccordionGroup} from "@ionic/vue";
+import {IonAccordionGroup} from "@ionic/vue";
 import baseListLayout from "@/components/base/BaseListLayout.vue";
 import DamageInspection from "@/components/scheduledTasks/DamageInspection.vue";
 import BacklogMaintenance from "@/components/scheduledTasks/BacklogMaintenance.vue";
@@ -7,9 +7,8 @@ import TechnicalInstallationInspection from "@/components/scheduledTasks/Technic
 import Modifications from "@/components/scheduledTasks/Modifications.vue";
 export default {
   name: "ScheduledView",
-  components: {IonList, IonItem, IonListHeader,
-    IonInput, IonLabel, IonButton, baseListLayout, IonAccordionGroup,
-    DamageInspection, BacklogMaintenance, TechnicalInstallationInspection, Modifications}
+  components: {baseListLayout, IonAccordionGroup, DamageInspection,
+    BacklogMaintenance, TechnicalInstallationInspection, Modifications}
 }
 </script>
 

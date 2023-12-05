@@ -1,7 +1,7 @@
 <script>
 import {IonList, IonItem, IonInput,
   IonListHeader, IonLabel, IonButton,
-  IonAlert, IonContent} from "@ionic/vue";
+  IonAlert, IonContent, useIonRouter} from "@ionic/vue";
 import {useLoginStore} from "@/stores/LoginStore.js";
 
 export default {
@@ -11,10 +11,19 @@ export default {
   data() {
     return {
       loginStore: useLoginStore(),
+      router: useIonRouter(),
       username: "",
       password: "",
     }
   },
+  methods: {
+    login(username, password) {
+      this.loginStore.fetchUser(username, password);
+      if(this.loginStore.getLoginStatus) {
+        this.$router.push({ name: 'Search'});
+      }
+    }
+  }
 }
 </script>
 
@@ -50,7 +59,7 @@ export default {
       </ion-item>
       <ion-button expand="full"
                   color="primary"
-                  @click="loginStore.fetchUser(username, password)">Go!</ion-button>
+                  @click="login(username, password)">Go!</ion-button>
     </ion-list>
   </form>
 </template>

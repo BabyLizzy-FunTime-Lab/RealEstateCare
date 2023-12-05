@@ -18,12 +18,24 @@ export default {
   data() {
     return {
       inspectionStore: useInspectionStore(),
+      inspectionInputData: {
+        location: "",
+        newDamage: "",
+        dateInput: new Date().toISOString(),
+        selectedDamageTypeOption: "",
+        damageTypeInput: "",
+        emergencyInput: "",
+        commentsInput: ""
+      }
     }
   },
   methods: {
     saveData() {
       console.log("Saving Damage Inspection data...");
-    }
+    },
+    setDamageType() {
+      this.inspectionInputData.damageTypeInput = this.inspectionInputData.selectedDamageTypeOption;
+    },
   }
 }
 </script>
@@ -32,14 +44,14 @@ export default {
 <base-accordion-layout header-name="Damage Inspection" accordion-value="first">
   <ion-item slot="content">
     <ion-input label="Location"
-               v-model="inspectionStore.damageInspection.locationInput"
+               v-model="inspectionInputData.location"
                placeholder="Input address"
                label-placement="floating"
                type="text"/>
   </ion-item>
   <ion-item slot="content">
     <ion-label>New Damage?</ion-label>
-    <ion-radio-group v-model="inspectionStore.damageInspection.newDamageInput"
+    <ion-radio-group v-model="inspectionInputData.newDamage"
                      name="newDamage">
         <ion-radio aria-label="Yes" label-placement="start" justify="end" value="yes">Yes</ion-radio>
         <ion-radio aria-label="No" label-placement="start" justify="end" value="no">No</ion-radio>
@@ -49,13 +61,13 @@ export default {
     <ion-label>Date</ion-label>
     <ion-datetime-button aria-label="Date" presentation="date" datetime="date"></ion-datetime-button>
     <ion-modal :keep-contents-mounted="true">
-      <ion-datetime v-model="inspectionStore.damageInspection.dateInput"
+      <ion-datetime v-model="inspectionInputData.dateInput"
                     presentation="date" id="date"></ion-datetime>
     </ion-modal>
   </ion-item>
   <ion-item slot="content">
-    <ion-select v-model="inspectionStore.damageInspection.selectedDamageTypeOption"
-                label="Damage Type" placeholder="Select" :ioChange="inspectionStore.setDamageType">
+    <ion-select v-model="inspectionInputData.selectedDamageTypeOption"
+                label="Damage Type" placeholder="Select" :ioChange="setDamageType">
       <ion-select-option value="deliberately">Deliberately</ion-select-option>
       <ion-select-option value="wear">Wear</ion-select-option>
       <ion-select-option value="violence">Violence</ion-select-option>
@@ -64,13 +76,13 @@ export default {
       <ion-select-option value="other">Other</ion-select-option>
     </ion-select>
   </ion-item>
-  <ion-item slot="content" v-if="inspectionStore.damageInspection.selectedDamageTypeOption === 'other'">
-    <ion-input v-model="inspectionStore.damageInspection.damageTypeInput" label="Input damage type"
+  <ion-item slot="content" v-if="inspectionInputData.selectedDamageTypeOption === 'other'">
+    <ion-input v-model="inspectionInputData.damageTypeInput" label="Input damage type"
                label-placement="floating" placeholder="Here" type="text"></ion-input>
   </ion-item>
   <ion-item slot="content">
     <ion-label>Emergency Action needed?</ion-label>
-    <ion-radio-group v-model="inspectionStore.damageInspection.emergencyInput"
+    <ion-radio-group v-model="inspectionInputData.emergencyInput"
                      name="emergency">
       <ion-radio aria-label="Yes" label-placement="start" justify="end" value="yes">Yes</ion-radio>
       <ion-radio aria-label="No" label-placement="start" justify="end" value="no">No</ion-radio>
@@ -78,7 +90,7 @@ export default {
   </ion-item>
   <ion-item slot="content">
     <ion-textarea label="Comments"
-                  v-model="inspectionStore.damageInspection.commentsInput"
+                  v-model="inspectionInputData.commentsInput"
                   label-placement="floating"
                   :auto-grow="true"
                   placeholder="Enter your comments"></ion-textarea>

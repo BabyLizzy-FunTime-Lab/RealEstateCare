@@ -27,8 +27,6 @@ export const useLoginStore = defineStore('login', {
                     // return data length to see if any matches were found.
                     if(result.data.length) {
                         let data = result.data[0];
-                        console.log(data);
-                        console.log(data.id);
                         this.loginStatus = true;
                         this.userInfo = {
                             id: data.id,
@@ -40,7 +38,6 @@ export const useLoginStore = defineStore('login', {
                             this.userInfo.avater = defaultAvatar ;
                         }
                         this.errorMessage = null;
-                        console.log(this.userInfo);
                         console.log("Login successful");
                     } else {
                         this.errorMessage = "User was not found or the password is incorrect.";
