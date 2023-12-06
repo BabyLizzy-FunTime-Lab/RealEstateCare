@@ -20,21 +20,26 @@ export default {
       inspectionStore: useInspectionStore(),
       inspectionInputData: {
         location: "",
-        newDamage: "",
-        dateInput: new Date().toISOString(),
-        selectedDamageTypeOption: "",
-        damageTypeInput: "",
-        emergencyInput: "",
-        commentsInput: ""
+        new_damage: "",
+        complete_date: new Date().toISOString(),
+        selected_damage_category: "",
+        damage_category: "",
+        emergency: "",
+        description: "",
+        images: []
       }
     }
   },
   methods: {
     saveData() {
+      let data = this.inspectionInputData;
+      delete data.selected_damage_category;
+      console.log(data);
+      this.inspectionStore.saveDamageInspections();
       console.log("Saving Damage Inspection data...");
     },
     setDamageType() {
-      this.inspectionInputData.damageTypeInput = this.inspectionInputData.selectedDamageTypeOption;
+      this.inspectionInputData.damage_category = this.inspectionInputData.selected_damage_category;
     },
   }
 }
@@ -51,7 +56,7 @@ export default {
   </ion-item>
   <ion-item slot="content">
     <ion-label>New Damage?</ion-label>
-    <ion-radio-group v-model="inspectionInputData.newDamage"
+    <ion-radio-group v-model="inspectionInputData.new_damage"
                      name="newDamage">
         <ion-radio aria-label="Yes" label-placement="start" justify="end" value="yes">Yes</ion-radio>
         <ion-radio aria-label="No" label-placement="start" justify="end" value="no">No</ion-radio>
@@ -61,12 +66,14 @@ export default {
     <ion-label>Date</ion-label>
     <ion-datetime-button aria-label="Date" presentation="date" datetime="date"></ion-datetime-button>
     <ion-modal :keep-contents-mounted="true">
-      <ion-datetime v-model="inspectionInputData.dateInput"
+      <ion-datetime v-model="inspectionInputData.complete_date"
+                    displayFormat="MMM D, YYYY"
+                    pickerFormat="MMM D YYYY"
                     presentation="date" id="date"></ion-datetime>
     </ion-modal>
   </ion-item>
   <ion-item slot="content">
-    <ion-select v-model="inspectionInputData.selectedDamageTypeOption"
+    <ion-select v-model="inspectionInputData.selected_damage_category"
                 label="Damage Type" placeholder="Select" :ioChange="setDamageType">
       <ion-select-option value="deliberately">Deliberately</ion-select-option>
       <ion-select-option value="wear">Wear</ion-select-option>
@@ -76,13 +83,13 @@ export default {
       <ion-select-option value="other">Other</ion-select-option>
     </ion-select>
   </ion-item>
-  <ion-item slot="content" v-if="inspectionInputData.selectedDamageTypeOption === 'other'">
-    <ion-input v-model="inspectionInputData.damageTypeInput" label="Input damage type"
+  <ion-item slot="content" v-if="inspectionInputData.selected_damage_category === 'other'">
+    <ion-input v-model="inspectionInputData.damage_category" label="Input damage type"
                label-placement="floating" placeholder="Here" type="text"></ion-input>
   </ion-item>
   <ion-item slot="content">
     <ion-label>Emergency Action needed?</ion-label>
-    <ion-radio-group v-model="inspectionInputData.emergencyInput"
+    <ion-radio-group v-model="inspectionInputData.emergency"
                      name="emergency">
       <ion-radio aria-label="Yes" label-placement="start" justify="end" value="yes">Yes</ion-radio>
       <ion-radio aria-label="No" label-placement="start" justify="end" value="no">No</ion-radio>
@@ -90,7 +97,7 @@ export default {
   </ion-item>
   <ion-item slot="content">
     <ion-textarea label="Comments"
-                  v-model="inspectionInputData.commentsInput"
+                  v-model="inspectionInputData.description"
                   label-placement="floating"
                   :auto-grow="true"
                   placeholder="Enter your comments"></ion-textarea>
@@ -99,7 +106,7 @@ export default {
     <ion-label>Photos</ion-label>
     <ion-button color="primary">Take Photo</ion-button>
   </ion-item>
-  <BaseSaveButton slot="content" name="Save" @click="saveData"/>
+  <BaseSaveButton slot="content" name="Save" @click="saveData()"/>
 </base-accordion-layout>
 </template>
 

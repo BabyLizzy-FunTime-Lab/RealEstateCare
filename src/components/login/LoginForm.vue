@@ -18,10 +18,8 @@ export default {
   },
   methods: {
     login(username, password) {
+      this.$router.replace({path:'/'});
       this.loginStore.fetchUser(username, password);
-      if(this.loginStore.getLoginStatus) {
-        this.$router.push({ name: 'Search'});
-      }
     }
   }
 }
@@ -48,14 +46,14 @@ export default {
                    v-model="username"
                    placeholder="user"
                    label="username:"
-                   @keyup.enter="loginStore.fetchUser(username, password)"/>
+                   @keyup.enter="login(username, password)"/>
       </ion-item>
       <ion-item>
         <ion-input type="password"
                    v-model="password"
                    placeholder="123"
                    label="password:"
-                   @keyup.enter="loginStore.fetchUser(username, password)"/>
+                   @keyup.enter="login(username, password)"/>
       </ion-item>
       <ion-button expand="full"
                   color="primary"

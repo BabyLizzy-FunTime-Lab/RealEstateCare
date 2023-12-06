@@ -1,9 +1,10 @@
 import {defineStore} from "pinia";
+import {useLoginStore} from "@/stores/LoginStore.js";
 import axios from "axios";
 
 // Default variables.
-// const baseBbUrl = "https://my-json-server.typicode.com/BabyLizzy-FunTime-Lab/RealEstateCare";
 const baseDbUrl = "https://real-estate-care-json-1205608aa6ef.herokuapp.com";
+const loginStore = useLoginStore();
 
 export const useInspectionStore = defineStore('inspections', {
     state: () => {
@@ -60,6 +61,9 @@ export const useInspectionStore = defineStore('inspections', {
             },
         fetchDamageInspections() {
 
+        },
+        saveDamageInspections(state) {
+            console.log(loginStore.getUserInfo.id);
         },
         fetchBacklogMaintenance() {
 
