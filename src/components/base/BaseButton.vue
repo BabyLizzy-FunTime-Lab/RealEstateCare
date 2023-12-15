@@ -2,7 +2,7 @@
 import {IonButton} from "@ionic/vue";
 
 export default {
-  name: "BaseSaveButton",
+  name: "BaseButton",
   components: {IonButton},
   props: {
     name: ""

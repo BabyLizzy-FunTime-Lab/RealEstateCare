@@ -52,7 +52,8 @@
       "location": "hoofdstraat 1, Rotterdam",
       "complete_date": "2023-09-19",
       "new_damage": true,
-      "damage_category": "normaal gebruik",
+      "selected_damage_category": "normal use",
+      "damage_category": "normal use",
       "emergency": true,
       "description": "Broken front door.",
       "images": []
@@ -63,7 +64,8 @@
       "location": "hoofdstraat 2, Rotterdam",
       "complete_date": "2023-08-02",
       "new_damage": true,
-      "damage_category": "slijtage",
+      "selected_damage_category": "wear",
+      "damage_category": "wear",
       "emergency": true,
       "description": "Bedroom curtain rail is broken.",
       "images": []
@@ -74,7 +76,8 @@
       "location": "dorpstraat 3, Rhoon",
       "complete_date": "2023-11-14",
       "new_damage": false,
-      "damage_category": "calamiteit",
+      "selected_damage_category": "calamity",
+      "damage_category": "calamity",
       "emergency": true,
       "description": "Sinterklaas riot damage.",
       "images": []

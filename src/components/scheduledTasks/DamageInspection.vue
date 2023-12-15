@@ -5,13 +5,12 @@ import {
   IonDatetimeButton, IonModal, IonRadioGroup, IonRadio, IonSelect, IonSelectOption, IonButton
 } from "@ionic/vue";
 import BaseAccordionLayout from "@/components/base/BaseAccordionLayout.vue";
-import BaseSaveButton from "@/components/base/BaseSaveButton.vue";
 import {useInspectionStore} from "@/stores/InspectionStore.js";
 
 export default {
   name: "DamageInspection",
   components: {
-    IonButton, BaseAccordionLayout, BaseSaveButton, IonLabel,
+    IonButton, BaseAccordionLayout, IonLabel,
     IonList, IonInput, IonItem, IonText,
     IonTextarea, IonDatetime, IonDatetimeButton,
     IonModal, IonRadioGroup, IonRadio, IonSelect, IonSelectOption},
@@ -46,7 +45,7 @@ export default {
 </script>
 
 <template>
-<base-accordion-layout header-name="Damage Inspection" accordion-value="first">
+<base-accordion-layout header-name="Damage Inspection" accordion-value="first" :on-save-click="saveData">
   <ion-item slot="content">
     <ion-input label="Location"
                v-model="inspectionInputData.location"
@@ -106,7 +105,6 @@ export default {
     <ion-label>Photos</ion-label>
     <ion-button color="primary">Take Photo</ion-button>
   </ion-item>
-  <BaseSaveButton slot="content" name="Save" @click="saveData()"/>
 </base-accordion-layout>
 </template>
 
