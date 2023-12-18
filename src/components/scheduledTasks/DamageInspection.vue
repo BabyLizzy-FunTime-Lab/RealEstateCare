@@ -18,6 +18,8 @@ export default {
     return {
       inspectionStore: useInspectionStore(),
       inspectionInputData: {
+        id: "",
+        inspectorId: "",
         location: "",
         new_damage: "",
         complete_date: new Date().toISOString(),
@@ -33,7 +35,10 @@ export default {
     saveData() {
       let data = this.inspectionInputData;
       delete data.selected_damage_category;
+      // new data gets added a new id.
+      delete data.id;
       console.log(data);
+      // the inspectorId is added by the saveDamageInspections function.
       this.inspectionStore.saveDamageInspections();
       console.log("Saving Damage Inspection data...");
     },

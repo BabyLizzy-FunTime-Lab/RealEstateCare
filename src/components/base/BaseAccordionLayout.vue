@@ -9,8 +9,7 @@ export default {
     headerName: String,
     accordionValue: String,
     onSaveClick: {
-      type: Function,
-      required: true
+      type: Function
     }
   }
 }

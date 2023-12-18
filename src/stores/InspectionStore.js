@@ -51,28 +51,54 @@ export const useInspectionStore = defineStore('inspections', {
         }
     },
     actions: {
-        fetchInspections(type) {
-            this.loadingStatus = true;
-            axios.get(baseDbUrl + "/inspections")
-                .then(result => {
-                    console.log(type);
-                    console.log(result.data);
-                })
+        fetchInspections() {
+                this.loadingStatus = true;
+                let user_id = loginStore.getUserInfo.id;
+                // call the independent fetch functions.
+                this.fetchDamageInspections(user_id);
+                this.fetchBacklogMaintenance(user_id);
+                this.fetchModifications(user_id);
+                this.fetchTechnicalInstallations(user_id);
+                this.loadingStatus = false
             },
-        fetchDamageInspections() {
-
+        fetchDamageInspections(user_id) {
+            this.loadingStatus = true;
+            axios.get(baseDbUrl + "/damage_inspection?inspectorId=" + user_id)
+                .then(result => {
+                    console.log("damage");
+                    console.log(result.data);
+                    this.loadingStatus = false
+                })
+        },
+        fetchBacklogMaintenance(user_id) {
+            this.loadingStatus = true;
+            axios.get(baseDbUrl + "/backlog_maintenance?inspectorId=" + user_id)
+                .then(result => {
+                    console.log("backlog");
+                    console.log(result.data);
+                    this.loadingStatus = false
+                })
+        },
+        fetchModifications(user_id) {
+            this.loadingStatus = true;
+            axios.get(baseDbUrl + "/modifications?inspectorId=" + user_id)
+                .then(result => {
+                    console.log("modifications");
+                    console.log(result.data);
+                    this.loadingStatus = false
+                })
+        },
+        fetchTechnicalInstallations(user_id) {
+            this.loadingStatus = true;
+            axios.get(baseDbUrl + "/technical_installation_inspection?inspectorId=" + user_id)
+                .then(result => {
+                    console.log("technical installations");
+                    console.log(result.data);
+                    this.loadingStatus = false
+                })
         },
         saveDamageInspections(state) {
             console.log(loginStore.getUserInfo.id);
-        },
-        fetchBacklogMaintenance() {
-
-        },
-        fetchModifications() {
-
-        },
-        fetchTechnicalInstallations() {
-
         },
         setDamageInspections() {
 
